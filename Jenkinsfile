@@ -9,6 +9,8 @@ node {
     }
  
     stage('terraform'){
-        sh"cd ${tf_path} & ${terraform} apply"
+        dir("${tf_path}"){
+            sh "${terraform} apply -auto-approne"
+        }
     }
 }
